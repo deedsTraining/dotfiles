@@ -19,8 +19,11 @@ alias hi="history"
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
 alias ls="BLOCK_SIZE=\'1 ls --color=auto" #enable thousands grouping and colour
 alias ll='ls -l --group-directories-first'
+alias la='ls -la --group-directories-first'
 alias cp='cp -i'
+alias copy='cp -i'
 alias mv='mv -i'
+alias move='mv -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
 alias dir='ls -l | more'
@@ -36,8 +39,8 @@ alias xclip='xclip -selection c'
 alias du1='du --max-depth=1'
 alias bashrc='gvim ~/.bashrc && source ~/.bashrc'
 alias bashhi='gvim ~/.bash_history'
-alias yum1='sudo yum --security check-update'
-alias yum2='sudo yum --security update'
+alias yum_sec='sudo yum --security check-update'
+alias yum_secu='sudo yum --security update'
 alias yum3='sudo yum list updates rpm yum bash firefox sudo git gcc'
 alias yum4='sudo yum list updates curl gnome-* make python* java* perl'
 alias yum3='sudo yum list updates adobe* flash* ntop perl vim* xclip tar'
@@ -126,8 +129,8 @@ function prompt2 {
   esac
 
 PS1="${TITLEBAR}\
-$YELLOW[$PURPLE\$(date +%H:%M)$YELLOW]\
-$BLUE[$BLUE\u@\h:\w$GREEN\$(parse_git_branch)$BLUE]\
+$LIGHT_GREY[$WHITE\$(date +%H:%M)$LIGHT_GREY]\
+$BLUE[$LIGHT_GREEN\u@\h:\w$BLUE\$(parse_git_branch)$BLUE]\
 $LIGHT_GREY\$ "
 PS2='> '
 PS3='choose: '
