@@ -5,7 +5,9 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 set nocompatible
-set nu				                "line numbering on
+set encoding=utf-8
+behave xterm
+set number		                "line numbering on
 syntax on                     "syntax colours on
 filetype plugin indent on     "filetype detection on
 set backspace=indent,eol,start  " allow backspacing in insert mode 
@@ -17,12 +19,12 @@ set hlsearch                 	"hilight searches by default
 set nohlsearch                "Turn off highlighting when done searching
 set ignorecase                "ignore case in searches
 set smartcase                 "use case when case in search term
-set autoindent                " 
 set shiftwidth=2		          "number of spaces to use in each autoindent step
 set tabstop=2                 "two tab spaces
 set softtabstop=2             "number of spaces to skip or insert when <BS>ing or <Tab>ing
 set expandtab                 "spaces instead of tabs for better cross-editor compatibility
 set autoindent                "keep the indent when creating a new line
+set smartindent               "smart!
 set smarttab                 	"use shiftwidth and softtabstop to insert or delete (on <BS>) blanks
 set ruler                     "Show the line and column number of the cursor position
 set wildmenu			            "make tab completion act more like bash
@@ -30,13 +32,14 @@ set wildmode=list:longest,full "tab complete to longest common string
 set wildignore=*.bak,*~       "ignore these
 set mouse-=a  			          "disable mouse automatically entering visual mode
 set wrap                      "wrap
+set nowrap                    "!!
 set textwidth=79
 set backspace=2               "allow backspace in ins mode
 set hidden                   	"allow hiding buffers with unsaved changes
 set cmdheight=2              	"make the command line a little taller to hide "press enter to view more" text
 set shortmess=atI             "turn off short message
 set linebreak                 "break at word
-"set backupdir=$HOME/.vim/backup
+"set backupdir=$HOME/.vim/backup 
 "set directory=$HOME/
 set browsedir=current         " which directory to use for the file browser
 " The current directory is the directory of the file in the current window.
@@ -45,7 +48,7 @@ if has("autocmd")
 endif
 
 let mapleader = ","         	"remap leader to ',' which is much easier than '\'
-autocmd FocusLost * :wa       "force save on focus loss
+"autocmd FocusLost * :wa       "force save on focus loss
 autocmd bufwritepost .vimrc source $MYVIMRC " Source .vimrc when written
 autocmd BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | endif                  "make exec if bash script
 
@@ -103,6 +106,16 @@ nmap <C-S-tab> :tabprevious<CR>
 imap <C-S-tab> <C-o>:tabprevious<CR>
 vmap <C-S-tab> <C-o>:tabprevious<CR>
 
-let g:BASH_AuthorName='RM'
-let g:BASH_Email=''
-let g:BASH_Company=''
+" for fugitive plugin
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" Highlights long lines
+highlight OverLength term=standout cterm=bold ctermfg=1
+match OverLength /\%91v.\+/
+
+" Markdown
+au BufRead,BufNewFile *.md highlight clear OverLength
+au BufRead,BufNewFile *.md set ai formatoptions=tcroqn2 comments=n:>
+
+" Toggle spell checking.
+:map <f7> :set spell!<cr>

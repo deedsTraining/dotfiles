@@ -43,7 +43,8 @@ alias yum_sec='sudo yum --security check-update'
 alias yum_secu='sudo yum --security update'
 alias yum3='sudo yum list updates rpm yum bash firefox sudo git gcc'
 alias yum4='sudo yum list updates curl gnome-* make python* java* perl'
-alias yum3='sudo yum list updates adobe* flash* ntop perl vim* xclip tar'
+alias yum5='sudo yum list updates adobe* flash* ntop perl vim* xclip tar'
+alias q='read -p "Press any key to exit, <C>c to stay" && exit'
 
 shopt -s autocd
 shopt -s dirspell
