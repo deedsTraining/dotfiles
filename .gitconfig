@@ -31,3 +31,11 @@
   df = diff
   lg = log -p
   ls = ls-files
+	last = log -1 HEAD
+[merge]
+  tool = vimdiff
+  log = true
+[push]
+  default = current
+[help]
+  autocorrect = 1

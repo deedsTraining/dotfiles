@@ -39,8 +39,10 @@ set hidden                   	"allow hiding buffers with unsaved changes
 set cmdheight=2              	"make the command line a little taller to hide "press enter to view more" text
 set shortmess=atI             "turn off short message
 set linebreak                 "break at word
+set undofile                  "turn on persistent undo
+set undodir=~/.vim/undo/
 "set backupdir=$HOME/.vim/backup 
-"set directory=$HOME/
+set directory=$HOME/
 set browsedir=current         " which directory to use for the file browser
 " The current directory is the directory of the file in the current window.
 if has("autocmd")
@@ -114,8 +116,8 @@ highlight OverLength term=standout cterm=bold ctermfg=1
 match OverLength /\%91v.\+/
 
 " Markdown
-au BufRead,BufNewFile *.md highlight clear OverLength
-au BufRead,BufNewFile *.md set ai formatoptions=tcroqn2 comments=n:>
+au BufRead,BufNewFile *.md,*.mkd,*.markdown highlight clear OverLength
+au BufRead,BufNewFile *.md,*.mkd,*.markdown set ai formatoptions=tcroqn2 comments=n:>
 
 " Toggle spell checking.
 :map <f7> :set spell!<cr>

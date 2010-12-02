@@ -5,8 +5,15 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-source ~/.bash_aliases
-source /etc/bash_completion
+#source ~/.bash_aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+#source /etc/bash_completion
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
 
 export WORK=/home/rod/work/
 export EDITOR=gvim
@@ -14,37 +21,6 @@ export CDROM=/mnt/cdrom
 #export PS1="\[\033[1;34m\][\u@\h\w]$\[\033[0m\] "
 HISTCONTROL=ignoreboth:ignoredups
 HISTIGNORE="&:[bf]g:exit:l[sl.d]:hi:history:pwd:cd[~/.]:cd .."
-
-alias hi="history"
-alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
-alias ls="BLOCK_SIZE=\'1 ls --color=auto" #enable thousands grouping and colour
-alias ll='ls -l --group-directories-first'
-alias la='ls -la --group-directories-first'
-alias cp='cp -i'
-alias copy='cp -i'
-alias mv='mv -i'
-alias move='mv -i'
-alias rm='rm -i'
-alias mkdir='mkdir -p'
-alias dir='ls -l | more'
-alias cd..='cd ..'
-alias cdl='cd; clear'
-alias cls='clear'
-alias r='fc -s'
-alias path='echo $PATH'
-alias cd~='cd ~'
-# for easy access to xclip (eg: ls -l | xclip)
-alias xclip='xclip -selection c'
-# disk usage at current level
-alias du1='du --max-depth=1'
-alias bashrc='gvim ~/.bashrc && source ~/.bashrc'
-alias bashhi='gvim ~/.bash_history'
-alias yum_sec='sudo yum --security check-update'
-alias yum_secu='sudo yum --security update'
-alias yum3='sudo yum list updates rpm yum bash firefox sudo git gcc'
-alias yum4='sudo yum list updates curl gnome-* make python* java* perl'
-alias yum5='sudo yum list updates adobe* flash* ntop perl vim* xclip tar'
-alias q='read -p "Press any key to exit, <C>c to stay" && exit'
 
 shopt -s autocd
 shopt -s dirspell
@@ -130,9 +106,9 @@ function prompt2 {
   esac
 
 PS1="${TITLEBAR}\
-$LIGHT_GREY[$WHITE\$(date +%H:%M)$LIGHT_GREY]\
-$BLUE[$LIGHT_GREEN\u@\h:\w$BLUE\$(parse_git_branch)$BLUE]\
-$LIGHT_GREY\$ "
+$YELLOW[$TEALB\$(date +%H:%M)$YELLOW]\
+$YELLOW[$LIGHT_GREEN\u@\h:\w$LIGHT_GREEN\$(parse_git_branch)$YELLOW]\
+$WHITE\$ "
 PS2='> '
 PS3='choose: '
 PS4='+ '
@@ -166,5 +142,12 @@ function gmail()      # connect to gmail
 curl -u roderick.alexander.mitchell@gmail.com --silent "https://mail.google.com/mail/feed/atom" | perl -ne
  ' print "Subject: $1 " if /<title>(.+?)<\/title>/ && $title++; 
    print "(from $1)\n" if /<email>(.+?)<\/email>/;'
+}
+
+function translate() 
+{
+ wget -qO- "http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=$1&langpair=${2:-en}|${3:-es}"   | sed -E -n 's/[[:alnum:]": {}]+"translatedText":"([^"]+)".*/\1/p';
+echo ''
+return 0;
 }
 

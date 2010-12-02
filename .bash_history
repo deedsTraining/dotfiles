@@ -576,3 +576,389 @@ gvim .bash_aliases
 bashal
 bashrc
 bashal
+cd ~
+copy .bash_* dotfiles/
+cd dotfiles/
+gs
+git add .
+gs
+lll
+copy ~/.vimrc .
+gc -am "added all .bash files"
+git push origin master 
+yum_secu
+bashrc
+source ~/.bashrc
+cd ~/dotfiles/
+gs
+cd $WORK
+cd d2
+gs
+cd ../deedstraining.github.com/
+gs
+cd ~/.vim/bundle/
+gs
+cd ragtag/
+gs
+ga doc/tags 
+cd ../unimpaired/
+gs
+ga doc/tags 
+gs
+gc -am "add tags"
+gs
+q
+cd ~/.vim/bundle/
+mkdir colors
+cp ~/zenburn.vim ./colors/
+mkdir themes
+rm colors/
+rm -r colors/
+cd themes/
+mkdir colors
+cd colors/
+copy ~/zenburn.vim .
+rm -r themes/
+gs
+md colors
+mkdir colors
+cd colors/
+copy ~/zenburn.vim .
+rm zenburn.vim 
+cd ~/Downloads/
+copy *.vim ~/.vim/colors/
+rm *.vim 
+gvim icco.md 
+yum_sec
+yum_secu
+yum3
+yum4
+yum5
+sudo yum update flash-plugin
+cd ~
+la
+cd .mozilla/
+la
+cd firefox/
+la
+cd 0oynfldl.default/
+la
+cd searchplugins/
+gvim google-images.xml 
+gvim youtube.xml 
+firefox --help
+cd ~
+q
+cd /usr/share/vim/
+cd vim72/
+copy filetype.vim ~/.vim/
+cd ~
+cd .vim/
+gvim filetype.vim 
+cd /usr/share/vim/
+cd vim72/
+copy menu.vim ~/.vim/
+gvim filetype.vim 
+gvim menu.vim 
+yum_secu
+yum3
+yum4
+yum5
+q
+time
+date
+datetime
+yum_secu
+yum3
+yum4
+yum5
+yum_secu
+yum5
+yum4
+yum3
+yum list updates
+sudo yum update nautilus*
+yum_secu
+yum3
+yum4
+yum5
+yum list available *virus*
+yum list available *scan*
+q
+ping www.google,com
+ping www.google.com
+yum_secu
+yum5
+ping www.google.com
+yum3
+yum4
+q
+host
+host hostname
+hostname
+ip
+ipmaddr
+q
+yum_secu
+yum3
+yum4
+yum5
+yum_secu
+yum5
+yum4
+yum3
+yum list updates 
+q
+yum_secu
+yum3
+yum4
+yum5
+sudo yum update kernel
+q
+yum list updates
+sudo yum update auth*
+q
+yum_secu
+yum5
+yum4
+yum3
+q
+yum list available *markd*
+sudo yum install perl-Text-M*
+markdown
+whereis markdown
+whereis Markdown
+perl Markdown
+perl markdown
+cd /usr/share/
+cd perl5/
+ll m*
+cd Text/
+MAKEDEV Markdown.pm 
+Markdown
+perl Markdown
+perl Markdown.pm
+perl Markdown.pm --help
+yum_secu
+yum3
+yum4
+yum5
+sudo yum update flash*
+yum list available vim*
+yum list installed vim*
+yum list available net*
+yum
+yum info netstat*
+yum list available *css*
+yum list installed *css*
+sudo yum install csstidy
+q
+yum_secu
+yum3
+yum4
+yum5
+q
+yum5
+yum4
+yum3
+yum_sec
+q
+yum_secu
+yum3
+yum4
+yum5
+yum list updates
+q
+yum_secu
+yum5
+yum4
+yum3
+sudo yum update gcc vim-* 
+whereis vim
+cd /usr/share/vim/
+la
+cd vim72/
+la
+cd vim73/
+la
+cd vimfiles/
+cd ../vim72/
+cd autoload/
+sudo cp pathogen.vim /usr/share/vim/vim73/autoload/
+gvim
+cd ~
+cd .vim/
+mkdir autoload
+cd autoload/
+cp /usr/share/vim/vim73/autoload/pathogen.vim .
+gvim
+cd ../
+cd bundle/
+gvim
+q
+vim
+q
+cd ~
+cd .vim/
+la
+mkdir undo
+la
+cd ~/work/
+cd d2/
+cd courses/
+la
+gvim index.html 
+gs
+echo $VIM
+echo
+bashrc
+q
+git gelp checkout
+git help update
+git help 
+git help pull
+git help fetch
+cd ~/work/d2/
+git fetch
+gs
+git help commit
+git pull
+gs
+git help fastforward
+gs
+la
+q
+yum_secu
+yum3
+yum4
+yum5
+q
+cd ~/work/d2/
+git remote -v
+git fetch origin
+git remote show origin
+gs
+git tag
+git log --pretty=online
+git log --pretty=oneline
+git config --global alias.last 'log -1 HEAD'
+git last
+git visual
+git config --global list
+git config --global -list
+git config --global --list
+git st
+git ls
+yum list installed light*
+yum list available light*
+yum list installed webr*
+yum list available webr*
+git-shell
+git config --list
+bashal
+ZZ
+source ~/.bashrc
+ZZ
+yum_secu
+yum3
+yum4
+yum5
+ZZ
+cd ~/work/d2/
+gs
+ga announcements.xml 
+gs
+git commit -am "added rss announcements.xml, needs to be validated"
+yum_secu
+ZZ
+yum_secu
+yum3
+yum4
+yum5
+sudo yum update java
+sudo yum update java-*
+yum help update
+man yum
+sudo yum update java-*
+yum list installed lohit*
+yum list remove lohit*
+sudo yum remove lohit*
+ZZ
+kill 
+kill -l
+q
+yum list available *gmail*
+sudo yum install gnome-gmail-*
+q
+yum_secu
+yum3
+yum4
+yum5
+ZZ
+yum_secu
+yum3
+yum5
+yum4
+ZZ
+yum_secu
+yum3
+yum4
+yum5
+ZZ
+yum list available Adobe*
+yum list available Adbe*
+yum list available *Rdr*
+yum list available *Reader*
+yum_secu
+yum5
+yum4
+yum3
+sudo yum update AdobeR*
+yum list available *X*
+cd ~/work/d2/
+gs
+la
+gvim index.html 
+gvim css/training.css 
+gvim addthis.ht
+gvim css/training.css 
+mv addthis.html ..
+la
+gs
+gc -am "Added addthis to training index page"
+gs
+git push origin master 
+gc --list
+git config --list 
+git help remote
+git remote set-url --push origin git@github.com:RodMitchell/d2.git
+git push origin master 
+git config --list 
+gs
+q
+git help remote 
+q
+yum_secu
+yum3
+yum4
+yum5
+sudo yum update java-*
+bashrc
+source ~/.bashrc
+bashrc
+sed --help
+wget --h
+yum list available wget
+sudo yum install wget
+bashal
+source ~/.bashrc
+bashrc
+man wget
+source ~/.bashrc
+translate hola
+translate hello en fr
+translate hello 
+source ~/.bashrc
+translate hello 
+translate hello en fr
+ZZ
