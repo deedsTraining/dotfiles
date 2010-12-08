@@ -20,7 +20,7 @@ export EDITOR=gvim
 export CDROM=/mnt/cdrom
 #export PS1="\[\033[1;34m\][\u@\h\w]$\[\033[0m\] "
 HISTCONTROL=ignoreboth:ignoredups
-HISTIGNORE="&:[bf]g:exit:l[sl.d]:hi:history:pwd:cd[~/.]:cd .."
+HISTIGNORE="&:[bf]g:exit:l[sl.d]:hi:history:pwd:cd[~/.]:cd ..:q:ZZ"
 
 shopt -s autocd
 shopt -s dirspell
@@ -29,15 +29,14 @@ shopt -s checkwinsize
 shopt -s histappend
 
 # for git tab completion
-source /etc/bash_completion.d/git
+#source /etc/bash_completion.d/git
+source ~/.git.completion.bash
 
-# git alias
-alias gs="git status"
-alias ga="git add"
-alias gd="git diff"
-alias gc="git commit"
-alias gp="git push"
-alias gb='git branch -a -v'
+# git aliases
+source ~/.git.aliases.bash
+
+#rails aliases
+source ~/.rails.aliases.bash
 
 # git prompt
 export GIT_PS1_SHOWDIRTYSTATE=true
