@@ -28,17 +28,35 @@ alias bashhi='gvim ~/.bash_history'
 alias bashal='gvim ~/.bash_aliases && source ~/.bash_aliases'
 alias hi="history"
 # yum
-alias yum_sec='sudo yum --security check-update'
-alias yum_secu='sudo yum --security update'
-alias yum3='sudo yum list updates rpm yum bash firefox sudo git gcc'
-alias yum3u='sudo yum update rpm yum bash firefox sudo git gcc'
-alias yum4='sudo yum list updates curl gnome-* make python* java* perl'
-alias yum4u='sudo yum update curl gnome-* make python* java* perl'
-alias yum5='sudo yum list updates adobe* flash* ntop perl vim* wget xclip tar'
-alias yum5u='sudo yum update adobe* flash* ntop perl vim* wget xclip tar'
-alias yum6='sudo yum list updates httpd httpd-* selinux-*'
-alias yum6u='sudo yum update httpd httpd-* selinux-*'
-alias yuml="sudo yum list updates"
+alias ys='yum --security check-update'
+alias ysu='sudo yum --security update'
+alias y3='yum list updates rpm yum bash firefox sudo git gcc'
+alias y3u='sudo yum update rpm yum bash firefox sudo git gcc'
+alias y4='yum list updates curl gnome-* make python* java* perl'
+alias y4u='sudo yum update curl gnome-* make python* java* perl'
+alias y5='yum list updates adobe* flash* ntop perl vim* wget xclip tar'
+alias y5u='sudo yum update adobe* flash* ntop perl vim* wget xclip tar'
+alias y6='yum list updates httpd httpd-* selinux-* openssl openssl-*'
+alias y6u='sudo yum update httpd httpd-* selinux-* openssl openssl-*'
+alias yl="yum list updates"
+
+function yum-help() {
+  echo "Yum Custom Aliases Usage"
+  echo
+  echo "  ys	  = yum --security check-update"                             
+  echo "  ysu   = sudo yum --security update"                                
+  echo "  y3 	  = yum list updates set3"                               
+  echo "  y4    = yum list updates set4"                               
+  echo "  y5	  = yum list updates set5"                               
+  echo "  y6    = yum list updates set6"
+  echo "  y3u   = sudo yum update set3"
+  echo "  y4u   = sudo yum update set4"
+  echo "  y5u   = sudo yum update set5"
+  echo "  y6u   = sudo yum update set6"
+  echo "  yl    = yum list updates"
+  echo
+}
+
 # exit
 alias q='read -p "Press any key to exit, <C>c to stay " && exit'
 alias ZZ='read -p "Press any key to exit, <C>c to stay " && exit'
