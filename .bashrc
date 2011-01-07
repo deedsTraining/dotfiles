@@ -20,7 +20,8 @@ export EDITOR=gvim
 export CDROM=/mnt/cdrom
 #export PS1="\[\033[1;34m\][\u@\h\w]$\[\033[0m\] "
 HISTCONTROL=ignoreboth:ignoredups
-HISTIGNORE="&:[bf]g:exit:l[sl.d]:hi:history:pwd:cd[~/.]:cd ..:q:ZZ"
+HISTIGNORE="&:[bf]g:exit:l[sl.d]:hi:history:pwd:cd[~/.]:cd
+..:q:ZZ:bashrc:bashhi;bashal:[ ]*"
 
 shopt -s autocd
 shopt -s dirspell
@@ -150,3 +151,6 @@ echo ''
 return 0;
 }
 
+function mcd () {
+    mkdir "$@" && cd "$@"
+}

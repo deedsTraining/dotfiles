@@ -3,6 +3,7 @@
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
+  echo "==> resources loaded from profile";
 fi
 
 if [ -f ~/.bash_aliases ]; then

@@ -27,7 +27,7 @@ alias bashrc='gvim ~/.bashrc && source ~/.bashrc'
 alias bashhi='gvim ~/.bash_history'
 alias bashal='gvim ~/.bash_aliases && source ~/.bashrc'
 alias hi="history"
-alias resrc=". ~/.bashrc"
+alias resrc=". ~/.bashrc;echo 'bashrc sourced'"
 # yum
 alias ys='yum --security check-update'
 alias ysu='sudo yum --security update'
@@ -64,5 +64,5 @@ function rpm-alias() {
 }
 
 # exit
-alias q='read -p "Press any key to exit, <C>c to stay " && exit'
-alias ZZ='read -p "Press any key to exit, <C>c to stay " && exit'
+alias q='read -p "Press enter to exit, <C>c to stay " && exit'
+alias ZZ='read -p "Press enter to exit, <C>c to stay " && exit'
