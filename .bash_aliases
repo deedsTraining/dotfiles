@@ -1,23 +1,36 @@
 # ~/.bash_aliases
 
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
+# list
 alias ls="BLOCK_SIZE=\'1 ls --color=auto" #enable thousands grouping and colour
 alias ll='ls -l --group-directories-first'
 alias la='ls -la --group-directories-first'
+alias dir='ls -l | more'
+# copy/move
 alias cp='cp -i'
 alias copy='cp -i'
 alias mv='mv -i'
 alias move='mv -i'
+# remove
 alias rm='rm -i'
+alias del='rm -rf' # remove directory/ies recursively 
+# new directory
 alias mkdir='mkdir -p'
-alias dir='ls -l | more'
+# cd
 alias cd..='cd ..'
 alias cdl='cd; clear'
+alias cd~='cd ~'
+alias ..="cd ../"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+# clear screen
 alias cls='clear'
 alias clr='clear'
+# re-execute last command begins with ...
 alias r='fc -s'
+# variables
 alias path='echo $PATH'
-alias cd~='cd ~'
+alias e=$EDITOR
 # for easy access to xclip (eg: ls -l | xclip)
 alias xclip='xclip -selection c'
 # disk usage at current level
