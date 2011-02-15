@@ -43,20 +43,20 @@ alias hi="history"
 alias resrc=". ~/.bashrc;echo 'bashrc sourced'"
 # yum
 alias ys='yum --security check-update'
-alias ysu='sudo yum -y --security update'
+alias ysu='sudo yum -y -v --security update'
 alias yl="yum list updates"
-alias yu="sudo yum -yv update"
-alias yc="sudo yum clean all"
+alias yu="sudo yum -y -v update"
+alias yc="sudo yum -v clean all"
 alias yi="yum info "
 
 function yum-alias() {
   echo "Yum Custom Aliases Usage"
   echo
   echo "  ys	  = yum --security check-update"                             
-  echo "  ysu   = sudo yum -yv --security update"                                
+  echo "  ysu   = sudo yum -y -v --security update"                                
   echo "  yl    = yum list updates"
-  echo "  yu    = sudo yum -yv update"
-  echo "  yc    = sudo yum clean all"
+  echo "  yu    = sudo yum -y -v update"
+  echo "  yc    = sudo yum -v clean all"
   echo "  yi    = yum info ?"
  echo
 }
