@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #!/bin/bash
 # ~/.bash_aliases
+=======
+# ~/.bash_aliases
+
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
 # list
 alias ls="BLOCK_SIZE=\'1 ls --color=auto" #enable thousands grouping and colour
@@ -31,7 +36,12 @@ alias r='fc -s'
 # variables
 alias path='echo $PATH'
 alias e=$EDITOR
+<<<<<<< HEAD
 alias todo="gvim ~/documents/todo"
+=======
+# for easy access to xclip (eg: ls -l | xclip)
+alias xclip='xclip -selection c'
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 # disk usage at current level
 alias du1='du --max-depth=1'
 # bash
@@ -76,6 +86,7 @@ function rpm-alias() {
   echo "  rpmqc = rpm -q --changelog '$1' | less"                               
   echo
 }
+<<<<<<< HEAD
 # curl
 alias myip="curl ifconfig.me"
 alias myipc="curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'"
@@ -91,6 +102,9 @@ alias yumbu="rpm -qa |  sed 's/\-[0-9].*//' > /backup/installed_yum_packages.txt
 
 # ruby
 alias websrv='ruby ~/work/src/webnocache.rb'
+=======
+
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 # exit
 alias q='read -p "Press enter to exit, <C>c to stay " && exit'
 alias ZZ='read -p "Press enter to exit, <C>c to stay " && exit'

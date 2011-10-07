@@ -5,7 +5,13 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 set nocompatible
+<<<<<<< HEAD
 set nu				                "line numbering on
+=======
+set encoding=utf-8
+behave xterm
+set number		                "line numbering on
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 syntax on                     "syntax colours on
 filetype plugin indent on     "filetype detection on
 set backspace=indent,eol,start  " allow backspacing in insert mode 
@@ -17,28 +23,48 @@ set hlsearch                 	"hilight searches by default
 set nohlsearch                "Turn off highlighting when done searching
 set ignorecase                "ignore case in searches
 set smartcase                 "use case when case in search term
+<<<<<<< HEAD
 set autoindent                " 
+=======
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 set shiftwidth=2		          "number of spaces to use in each autoindent step
 set tabstop=2                 "two tab spaces
 set softtabstop=2             "number of spaces to skip or insert when <BS>ing or <Tab>ing
 set expandtab                 "spaces instead of tabs for better cross-editor compatibility
 set autoindent                "keep the indent when creating a new line
+<<<<<<< HEAD
+=======
+set smartindent               "smart!
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 set smarttab                 	"use shiftwidth and softtabstop to insert or delete (on <BS>) blanks
 set ruler                     "Show the line and column number of the cursor position
 set wildmenu			            "make tab completion act more like bash
 set wildmode=list:longest,full "tab complete to longest common string
 set wildignore=*.bak,*~       "ignore these
 set mouse-=a  			          "disable mouse automatically entering visual mode
+<<<<<<< HEAD
 set nowrap                    "wrap
 set sidescroll=5
 set textwidth=200
+=======
+set wrap                      "wrap
+set nowrap                    "!!
+set textwidth=79
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 set backspace=2               "allow backspace in ins mode
 set hidden                   	"allow hiding buffers with unsaved changes
 set cmdheight=2              	"make the command line a little taller to hide "press enter to view more" text
 set shortmess=atI             "turn off short message
 set linebreak                 "break at word
+<<<<<<< HEAD
 "set backupdir=$HOME/.vim/backup
 "set directory=$HOME/
+=======
+set undofile                  "turn on persistent undo
+set undodir=~/.vim/undo/
+"set backupdir=$HOME/.vim/backup 
+set directory=$HOME/
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 set browsedir=current         " which directory to use for the file browser
 " The current directory is the directory of the file in the current window.
 if has("autocmd")
@@ -50,6 +76,7 @@ let mapleader = ","         	"remap leader to ',' which is much easier than '\'
 autocmd bufwritepost .vimrc source $MYVIMRC " Source .vimrc when written
 autocmd BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | endif                  "make exec if bash script
 
+<<<<<<< HEAD
 autocmd FileType html,htm set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
@@ -69,6 +96,12 @@ au BufRead,BufNewFile *.sass set filetype=sass
 
 " Toggle Indenting
 :nnoremap <F6> :setl noai nocin nosi inde=<CR>
+=======
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType htm set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 
 "turn off highlights with space
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> 
@@ -88,6 +121,7 @@ map <LocalLeader>kt :%s/\t/  /g<CR>
 "  kill DOS line breaks
 map <LocalLeader>kd :%s///g<CR>
 
+<<<<<<< HEAD
 " copy paste
 vmap <C-c> "+yi
 vmap <C-x> "+c
@@ -107,6 +141,26 @@ imap <C-v> <ESC>"+pa
 "cmap ppp <C-r>"
 " paste in COMMAND mode from system clipboard
 "cmap vv <C-r>+
+=======
+" copy to system clipboard
+vmap <C-c> "+y
+
+" paste in NORMAL mode from system clipboard (at or after cursor)
+nmap <LocalLeader>V "+gP
+nmap <LocalLeader>v "+gp
+
+" paste in INSERT mode from Vim's clipboard (unnamed register)
+imap ppp <ESC>pa
+
+" paste in INSERT mode from system clipboard
+imap vv <ESC>"+gpa
+
+" paste in COMMAND mode from Vim's clipboard (unnamed register)
+cmap ppp <C-r>"
+
+" paste in COMMAND mode from system clipboard
+cmap vv <C-r>+
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
 
 "tabs
 set guitablabel=%N\ %t\ %M\ %r
@@ -120,6 +174,7 @@ nmap <C-S-tab> :tabprevious<CR>
 imap <C-S-tab> <C-o>:tabprevious<CR>
 vmap <C-S-tab> <C-o>:tabprevious<CR>
 
+<<<<<<< HEAD
 " colours
 set background=dark
 let g:solarized_termtrans=1
@@ -134,3 +189,18 @@ colorscheme solarized
 "
 let &cdpath = ',' . substitute(substitute($CDPATH, '[, ]', '\\\0', 'g'), ':', ',', 'g')
 
+=======
+" for fugitive plugin
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" Highlights long lines
+highlight OverLength term=standout cterm=bold ctermfg=1
+match OverLength /\%91v.\+/
+
+" Markdown
+au BufRead,BufNewFile *.md,*.mkd,*.markdown highlight clear OverLength
+au BufRead,BufNewFile *.md,*.mkd,*.markdown set ai formatoptions=tcroqn2 comments=n:>
+
+" Toggle spell checking.
+:map <f7> :set spell!<cr>
+>>>>>>> 28dae0677284f51af84645f65c77cc56d33bfe68
