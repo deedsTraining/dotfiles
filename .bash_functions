@@ -105,3 +105,8 @@ return 0;
 function mcd () {
     mkdir "$@" && cd "$@"
 }
+
+function find_in_files()
+{
+  find $1 -type f -exec grep -l '$2' {} \; $3
+}

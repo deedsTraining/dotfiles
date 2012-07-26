@@ -18,12 +18,12 @@ fi
 export WORK=/home/rod/work/
 export EDITOR=gvim
 export CDROM=/mnt/cdrom
-export PATH=$PATH:/home/rod/.gem/ruby/1.8/bin
+export PATH=$PATH:/home/rod/.gem/ruby/1.8/bin:/usr/lib/ruby/1.8/
 export TERM="xterm-256color"
 export INPUTRC="~/.inputrc"
 
 HISTCONTROL=ignoreboth:ignoredups
-HISTIGNORE="&:[bf]g:exit:l[sl.d]:hi:history:pwd:cd[~/.]:cd..:q:ZZ:bashrc:bashhi;bashal:[ ]*"
+HISTIGNORE="&:[bf]g:exit:l[sl.d]:hi:history:pwd:cd[~/.]:cd..:q:ZZ:bashrc:bashhi;bashal:[ ]*;[ \t]*;hi | grep*"
 
 shopt -s autocd
 shopt -s dirspell
@@ -52,7 +52,3 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM="auto"
-#export PS1='[\u@\h \W]$(__git_ps1 " (%s)")\\$ '
-#export PS2='continue> '
-#export PS3='choose: '
-#export PS4='|${BASH_SOURCE} ${LINENO}${FUNCNAME[0]:+ ${FUNCNAME[0]}()}|  '

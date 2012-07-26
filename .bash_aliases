@@ -1,5 +1,6 @@
 #!/bin/bash
 # ~/.bash_aliases
+alias poff='poweroff'
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
 # list
 alias ls="BLOCK_SIZE=\'1 ls --color=auto" #enable thousands grouping and colour
@@ -84,13 +85,13 @@ alias myipc="curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'"
 alias speed="wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip"
 
 # backups
-alias ffbu='tar cvzf /backup/rod/firefox.tar.gz ~/.mozilla/'
-alias gembu="gem q > /backup/rod/gems.txt"
-alias yumbu="rpm -qa |  sed 's/\-[0-9].*//' > /backup/installed_yum_packages.txt"
+alias ffbu='tar cvzf ~/backup/firefox.tar.gz ~/.mozilla/'
+alias gembu="gem q > ~/backup/gems.txt"
+alias yumbu="rpm -qa |  sed 's/\-[0-9].*//' > /home/rod/backup/installed_yum_packages.txt"
 # yum -y install $(cat ~/installed_yum_packages.txt)
 
 # ruby
-alias websrv='ruby ~/work/src/webnocache.rb'
+alias websrv='ruby ~/webnocache.rb'
 # exit
 alias q='read -p "Press enter to exit, <C>c to stay " && exit'
 alias ZZ='read -p "Press enter to exit, <C>c to stay " && exit'

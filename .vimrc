@@ -1,45 +1,109 @@
+set nocompatible
+
 filetype off                  "filetypes off for pathogen
 
-runtime bundle/pathogen/autoload/pathogen.vim
+silent! runtime bundle/pathogen/autoload/pathogen.vim
 
 " pathogen
-"call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
+silent! call pathogen#infect()
+silent! call pathogen#helptags()
 
-set nocompatible
-set nu				                "line numbering on
-syntax on                     "syntax colours on
-filetype plugin indent on     "filetype detection on
+" Filetypes
+if has("autocmd")
+    filetype on
+    filetype indent on
+    filetype plugin on
+endif
+
+" Backups
+set nobackup
+if has("writebackup")
+    set nowritebackup
+endif
+
+" syntax
+if has("syntax")
+    syntax enable
+    if has("folding")
+        set fillchars=diff:\ ,fold:\ ,vert:\
+    endif
+endif
+
+" Commands
+if has("cmdline_info")
+    set ruler
+    set showcmd
+    set showmode
+endif
+
+"Formatting
+set expandtab
+set nojoinspaces
+set shiftround
+set shiftwidth=2		          "number of spaces to use in each autoindent step
+set softtabstop=1             "number of spaces to skip or insert when <BS>ing or <Tab>ing
+set tabstop=1
 set backspace=indent,eol,start  " allow backspacing in insert mode 
+set modelines=0
+set shortmess+=I
+
+" Wildmenu
+if has("wildmenu")
+ set wildmenu 			            "make tab completion act more like bash
+ set wildmode=list:longest,full "tab complete to longest common string
+" set wildmode=longest,list
+ set wildignore=*.bak,*~        "ignore these
+ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+ set wildignore+=.DS_Store,.git,.hg,.svn
+ set wildignore+=*~,*.swp,*.tmp
+ set wildmenu
+endif
+
+set nu				                "line numbering on
+
 set showmatch                 "show matching brackets
 set showcmd			              "show incomplete cmds down the bottom
 set showmode                  "show current mode down the bottom
+
+"search
 set incsearch                	"find the next match as we type the search
 set hlsearch                 	"hilight searches by default
 set nohlsearch                "Turn off highlighting when done searching
 set ignorecase                "ignore case in searches
 set smartcase                 "use case when case in search term
+
 set autoindent                " 
-set shiftwidth=2		          "number of spaces to use in each autoindent step
-set tabstop=2                 "two tab spaces
-set softtabstop=2             "number of spaces to skip or insert when <BS>ing or <Tab>ing
 set expandtab                 "spaces instead of tabs for better cross-editor compatibility
 set autoindent                "keep the indent when creating a new line
 set smarttab                 	"use shiftwidth and softtabstop to insert or delete (on <BS>) blanks
+
 set ruler                     "Show the line and column number of the cursor position
-set wildmenu			            "make tab completion act more like bash
-set wildmode=list:longest,full "tab complete to longest common string
-set wildignore=*.bak,*~       "ignore these
 set mouse-=a  			          "disable mouse automatically entering visual mode
 set nowrap                    "wrap
+
+" Windows
+if has("windows")
+ set laststatus=1
+ set splitbelow
+ if has("vertsplit")
+  set splitright
+  endif
+ silent! set showtabline=1
+endif
+
 set sidescroll=5
 set textwidth=200
 set backspace=2               "allow backspace in ins mode
 set hidden                   	"allow hiding buffers with unsaved changes
 set cmdheight=2              	"make the command line a little taller to hide "press enter to view more" text
 set shortmess=atI             "turn off short message
-set linebreak                 "break at word
+
+if has("linebreak")
+ set linebreak                 "break at word
+ set showbreak=...
+endif
+
+"backup
 "set backupdir=$HOME/.vim/backup
 "set directory=$HOME/
 set browsedir=current         " which directory to use for the file browser
@@ -132,8 +196,30 @@ let g:solarized_visibility="high"
 let g:solarized_menu=0
 call togglebg#map("<F5>")
 colorscheme solarized
+"colorscheme sahara
 " export TERM="xterm-256color in .bashrc"
 " not in .gvimrc so terminal vi is also colourized"
-"
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=yellow guibg=NONE
+
+" path
 let &cdpath = ',' . substitute(substitute($CDPATH, '[, ]', '\\\0', 'g'), ':', ',', 'g')
 
+"complete
+set complete=.,b,u,]
+imap <Tab> <C-P>
+
+"unicode & Encoding
+set fileformats=unix,dos,mac
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+
+if has("statusline")
+ set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+endif
