@@ -55,7 +55,6 @@ function prompt2 {
     TITLEBAR=""
     ;;
   esac
-
 PS1="${TITLEBAR}\
 $YELLOW[$TEALB\$(date +%H:%M)$YELLOW]\
 $YELLOW[$LIGHT_GREEN\u@\h:\w$LIGHT_GREEN\$(parse_git_branch)$YELLOW]\
@@ -64,7 +63,6 @@ PS2='> '
 PS3='choose: '
 PS4='+ '
 }
-prompt2
 
 function extract()      # Handy Extract Program.
 {

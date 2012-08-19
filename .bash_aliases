@@ -29,6 +29,10 @@ alias cls='clear'
 alias clr='clear'
 # re-execute last command begins with ...
 alias r='fc -s'
+## prevent embarassingly running command on whole server ##
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
 # variables
 alias path='echo $PATH'
 alias e=$EDITOR
@@ -40,6 +44,7 @@ alias bashrc='gvim ~/.bashrc && source ~/.bashrc'
 alias bashhi='gvim ~/.bash_history'
 alias bashal='gvim ~/.bash_aliases && source ~/.bashrc'
 alias hi="history"
+alias hg="history | grep "
 alias resrc=". ~/.bashrc;echo 'bashrc sourced'"
 # yum
 alias ys='yum --security check-update'
@@ -48,7 +53,6 @@ alias yl="yum list updates"
 alias yu="sudo yum -y -v update"
 alias yc="sudo yum -v clean all"
 alias yi="yum info "
-
 function yum-alias() {
   echo "Yum Custom Aliases Usage"
   echo
@@ -60,7 +64,6 @@ function yum-alias() {
   echo "  yi    = yum info ?"
  echo
 }
-
 # rpm
 # installed packages with their contents
 alias rpmq='rpm -qa -l --qf "%{NAME}:\n" | less'
@@ -68,7 +71,6 @@ alias rpmq='rpm -qa -l --qf "%{NAME}:\n" | less'
 alias rpmqs='rpm -qa --queryformat "%{SIZE}  %{NAME}-%{VERSION}-%{RELEASE}\n" | sort -n'
 # function to query changelog for a package
 rpmqc () { rpm -q --changelog "$1" | less;}
-
 function rpm-alias() {
   echo "RPM Custom Aliases Usage"
   echo
@@ -80,16 +82,14 @@ function rpm-alias() {
 # curl
 alias myip="curl ifconfig.me"
 alias myipc="curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'"
-
 #wget
 alias speed="wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip"
-
+alias wget="wget -c"
 # backups
 alias ffbu='tar cvzf ~/backup/firefox.tar.gz ~/.mozilla/'
 alias gembu="gem q > ~/backup/gems.txt"
 alias yumbu="rpm -qa |  sed 's/\-[0-9].*//' > /home/rod/backup/installed_yum_packages.txt"
 # yum -y install $(cat ~/installed_yum_packages.txt)
-
 # ruby
 alias websrv='ruby ~/webnocache.rb'
 # exit

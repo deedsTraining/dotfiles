@@ -23,7 +23,7 @@ export TERM="xterm-256color"
 export INPUTRC="~/.inputrc"
 
 HISTCONTROL=ignoreboth:ignoredups
-HISTIGNORE="&:[bf]g:exit:l[sl.d]:hi:history:pwd:cd[~/.]:cd..:q:ZZ:bashrc:bashhi;bashal:[ ]*;[ \t]*;hi | grep*"
+HISTIGNORE="&:[bf]g:exit:l[sl.d]:hi:history:pwd:cd[~/.]:cd..:q:ZZ:bashrc:bashhi;bashal:[ ]*;[ \t]*;hi *;hg *"
 
 shopt -s autocd
 shopt -s dirspell
