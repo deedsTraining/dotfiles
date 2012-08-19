@@ -13,7 +13,7 @@ alias copy='cp -i'
 alias mv='mv -i'
 alias move='mv -i'
 # remove
-alias rm='rm -i'
+alias rm='rm -I --preserve-root '
 alias del='rm -rf' # remove directory/ies recursively 
 # new directory
 alias mkdir='mkdir -p'
@@ -34,11 +34,12 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 # variables
-alias path='echo $PATH'
 alias e=$EDITOR
 alias todo="gvim ~/documents/todo"
 # disk usage at current level
 alias du1='du --max-depth=1'
+alias path="echo -e ${PATH//:/\\n}"
+alias now='date +"%d-%m-%Y %T'
 # bash
 alias bashrc='gvim ~/.bashrc && source ~/.bashrc'
 alias bashhi='gvim ~/.bash_history'
