@@ -14,7 +14,8 @@ alias mv='mv -i'
 alias move='mv -i'
 # remove
 alias rm='rm -I --preserve-root '
-alias del='rm -rf' # remove directory/ies recursively 
+alias del='rm -rf' # remove directory/ies recursively
+alias shred='shred -f -u -v -z '
 # new directory
 alias mkdir='mkdir -p'
 # cd
@@ -24,11 +25,15 @@ alias cd~='cd ~'
 alias ..="cd ../"
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias docs="cd ~/documents"
 # clear screen
 alias cls='clear'
 alias clr='clear'
 # re-execute last command begins with ...
 alias r='fc -s'
+## change
+## make executable
+alias makex="chmod u+x "
 ## prevent embarassingly running command on whole server ##
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
@@ -88,6 +93,7 @@ alias speed="wget --output-document=/dev/null http://speedtest.wdc01.softlayer.c
 alias wget="wget -c"
 # backups
 alias ffbu='tar cvzf ~/backup/firefox.tar.gz ~/.mozilla/'
+alias workbu='tar cvzf ~/backup/work.tar.gz ~/documents ~/work'
 alias gembu="gem q > ~/backup/gems.txt"
 alias yumbu="rpm -qa |  sed 's/\-[0-9].*//' > /home/rod/backup/installed_yum_packages.txt"
 # yum -y install $(cat ~/installed_yum_packages.txt)

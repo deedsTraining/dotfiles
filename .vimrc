@@ -9,6 +9,7 @@ if has("autocmd")
     filetype on
     filetype indent on
     filetype plugin on
+autocmd BufEnter * :lchdir %:p:h
 endif
 " Backups
 set nobackup
@@ -89,9 +90,6 @@ endif
 "set directory=$HOME/
 set browsedir=current      " which directory to use for the file browser
 " The current directory is the directory of the file in the current window.
-if has("autocmd")
-  autocmd BufEnter * :lchdir %:p:h
-endif
 let mapleader = ","       	"remap leader to ',' which is much easier than '\'
 autocmd bufwritepost .vimrc source $MYVIMRC " Source .vimrc when written
 autocmd BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | endif                  "make exec if bash script
@@ -100,19 +98,34 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType html,htm let b:closetag_html_style=1
 autocmd FileType html,htm,xml source ~/.vim/bundle/closetag/plugin/closetag.vim
-autocmd FileType html,htm,css,sass,scss source ~/.vim/bundle/css-syntax/unix/css.vim
+autocmd FileType html,htm,css,sass,scss source ~/.vim/bundle/css-syntax/syntax/css.vim
 " scss, sass syntax
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufRead,BufNewFile *.sass set filetype=sass
+" clumsy 
+if has("user_commands")
+    command! -bang -nargs=? -complete=file E e<bang> <args>
+    command! -bang -nargs=? -complete=file W w<bang> <args>
+    command! -bang -nargs=? -complete=file Wq wq<bang> <args>
+    command! -bang -nargs=? -complete=file WQ wq<bang> <args>
+    command! -bang Wa wa<bang>
+    command! -bang WA wa<bang>
+    command! -bang Q q<bang>
+    command! -bang QA qa<bang>
+    command! -bang Qa qa<bang>
+endif
+" Map
 " Toggle line numbers
-:map <F9> :set nu!<cr>
+map <F9> :set nu!<cr>
 " Toggle spell checking.
-:map <f7> :set spell!<cr>
+map <F7> :set spell!<cr>
 " Toggle wrap
-:map <F8> :set wrap!<cr>
+map <F8> :set wrap!<cr>
 " Toggle Indenting
-:nnoremap <F6> :setl noai nocin nosi inde=<CR>
+nnoremap <F6> :setl noai nocin nosi inde=<CR>
 "turn off highlights with space
+map <F12> :set nobomb!<cr>
+" no BOM
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> 
 "strip whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>    
@@ -126,11 +139,14 @@ map <LocalLeader>ks :%s/\s\+$//g<CR>
 map <LocalLeader>kt :%s/\t/  /g<CR>
 "  kill DOS line breaks
 map <LocalLeader>kd :%s///g<CR>
+" delete empty lines :g/^$/d
 " copy paste
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
+" fix yank
+nnoremap Y y$
 "tabs
 set guitablabel=%N\ %t\ %M\ %r
 " quick open new tab
@@ -171,6 +187,7 @@ if has("multi_byte")
     let &termencoding = &encoding
   endif
   set encoding=utf-8
+  set nobinary
   setglobal fileencoding=utf-8
   "setglobal bomb
   set fileencodings=ucs-bom,utf-8,latin1

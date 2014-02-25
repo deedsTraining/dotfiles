@@ -16,7 +16,7 @@ fi
 export WORK=/home/rod/work/
 export EDITOR=gvim
 export CDROM=/mnt/cdrom
-export PATH=$PATH:/home/rod/.gem/ruby/1.8/bin:/usr/lib/ruby/1.8/
+export PATH=$PATH:/home/rod/.gem/ruby/1.8/bin:/usr/lib/ruby/1.8/:/home/rod/texlive/2012/bin/i386-linux
 export TERM="xterm-256color"
 export INPUTRC="~/.inputrc"
 #history
@@ -44,3 +44,11 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM="auto"
+# mark completion
+_completemarks() {
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  return 0
+}
+complete -F _completemarks jump unmark
